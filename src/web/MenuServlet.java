@@ -14,7 +14,6 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-//@WebServlet(name = "checkMenu", urlPatterns = "/addmenu")
 @WebServlet("/")
 public class MenuServlet extends HttpServlet {
     private MenuDAO menuDAO;
@@ -30,7 +29,6 @@ public class MenuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String action = request.getServletPath();
-        System.out.println(action);
 
         try {
             switch (action) {
@@ -40,15 +38,15 @@ public class MenuServlet extends HttpServlet {
                 case "/listmenu":
                     listMenu(request, response);
                     break;
-//                case "/delete":
-//                    deleteUser(request, response);
-//                    break;
-//                case "/edit":
-//                    showEditForm(request, response);
-//                    break;
-//                case "/update":
-//                    updateUser(request, response);
-//                    break;
+                case "/deletemenu":
+                    deleteUser(request, response);
+                    break;
+                case "/editmenu":
+                    menuEditForm(request, response);
+                    break;
+                case "/updatemenu":
+                    updateUser(request, response);
+                    break;
                 default:
                     listMenu(request, response);
                     break;
@@ -63,9 +61,8 @@ public class MenuServlet extends HttpServlet {
             throws SQLException, IOException {
 
         String name = request.getParameter("name");
-        String  price = request.getParameter("price");
+        String price = request.getParameter("price");
         String category = request.getParameter("category");
-        System.out.println("in create menu " + name + price + category);
         Menu newMenu = new Menu(name, price, category);
         menuDAO.insertMenu(newMenu);
         response.sendRedirect("/listmenu");
@@ -78,6 +75,37 @@ public class MenuServlet extends HttpServlet {
         request.setAttribute("listMenu", listMenu);
         RequestDispatcher dispatcher = request.getRequestDispatcher("admin/food-list.jsp");
         dispatcher.forward(request, response);
+    }
+
+    // Delete menu
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        MenuDAO.deleteMenu(id);
+        response.sendRedirect("/listmenu");
+
+    }
+
+    // Update menu
+    private void updateUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String price = request.getParameter("price");
+        String category = request.getParameter("category");
+        Menu menu = new Menu(id, name, price, category);
+        MenuDAO.updateMenu(menu);
+        response.sendRedirect("listmenu");
+    }
+
+    private void menuEditForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Menu existingUser = MenuDAO.selectMenu(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("admin/food-edit.jsp");
+        request.setAttribute("singleMenu", existingUser);
+        dispatcher.forward(request, response);
+
     }
 
 }

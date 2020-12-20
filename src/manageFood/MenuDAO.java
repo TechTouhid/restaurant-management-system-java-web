@@ -17,13 +17,12 @@ public class MenuDAO {
     private static final String INSERT_MENU = "INSERT INTO menu" + "  (name, price, category) VALUES "
             + " (?, ?, ?);";
     private static final String SELECT_ALL_MENU = "select * from menu";
-    private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
-    private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
+    private static final String DELETE_MENU = "delete from menu where id = ?;";
+    private static final String UPDATE_USERS = "update menu set name =?,price =?, category =? where id =?;";
+    private static final String SELECT_MENU_BY_ID = "select name,price,category from menu where id =?";
 
     public MenuDAO() {
-//        CreateMenuTable();
         getConnection();
-//        createConnection();
     }
 
     // Creating Database Connection
@@ -32,7 +31,6 @@ public class MenuDAO {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rms?serverTimezone=" + TimeZone.getDefault().getID(), "root", "");
-            System.out.println("Db connected");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -44,39 +42,20 @@ public class MenuDAO {
         return connection;
     }
 
-    // created the Book table
-//    public void CreateMenuTable() {
-//        try {
-//            stmt = conn.createStatement();
-////            stmt.execute("SET GLOBAL time_zone = '+6:00'");
-//
-//            stmt.execute(" CREATE TABLE IF NOT EXISTS menu ("
-//                    + " id varchar(255) PRIMARY key AUTO_INCREMENT, \n"
-//                    + " name varchar (255), \n"
-//                    + " price varchar (255), \n"
-//                    + " category varchar (100) \n"
-//                    + ")");
-//
-//        } catch (SQLException e) {
-//            System.out.println(e.getLocalizedMessage());
-//        }
-//    }
-
     // Create insert method
     public void insertMenu(Menu menu) throws SQLException {
-        System.out.println(INSERT_MENU);
         // try-with-resource statement will auto close the connection.
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(INSERT_MENU)) {
-            preparedStatement.setString(1,menu.getName());
-            preparedStatement.setString(2,menu.getCategory());
-            preparedStatement.setString(3,menu.getPrice());
-            System.out.println(preparedStatement);
+            preparedStatement.setString(1, menu.getName());
+            preparedStatement.setString(2, menu.getPrice());
+            preparedStatement.setString(3, menu.getCategory());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+
     // Select all the menus
     public static List<Menu> selectAllMenus() {
 
@@ -87,7 +66,7 @@ public class MenuDAO {
 
              // Step 2:Create a statement using connection object
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_MENU);) {
-            System.out.println(preparedStatement);
+//            System.out.println(preparedStatement);
             // Step 3: Execute the query or update query
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -105,6 +84,55 @@ public class MenuDAO {
         return menuitem;
     }
 
+    // Delete menu
+    public static boolean deleteMenu(int id) throws SQLException {
+        boolean rowDeleted;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_MENU);) {
+            statement.setInt(1, id);
+            rowDeleted = statement.executeUpdate() > 0;
+        }
+        return rowDeleted;
+    }
+
+    // Update menu
+    public static boolean updateMenu(Menu menu) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_USERS);) {
+            statement.setString(1, menu.getName());
+            statement.setString(2, menu.getPrice());
+            statement.setString(3, menu.getCategory());
+            statement.setInt(4, menu.getId());
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
+    public static Menu selectMenu(int id) {
+        Menu menu = null;
+        // Step 1: Establishing a Connection
+        try (Connection connection = getConnection();
+             // Step 2:Create a statement using connection object
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_MENU_BY_ID);) {
+            preparedStatement.setInt(1, id);
+            // Step 3: Execute the query or update query
+            ResultSet rs = preparedStatement.executeQuery();
+
+            // Step 4: Process the ResultSet object.
+            while (rs.next()) {
+                String name = rs.getString("name");
+                String price = rs.getString("price");
+                String category = rs.getString("category");
+                menu = new Menu(id, name, price, category);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return menu;
+    }
+
     private static void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
             if (e instanceof SQLException) {
@@ -120,6 +148,5 @@ public class MenuDAO {
             }
         }
     }
-
 
 }

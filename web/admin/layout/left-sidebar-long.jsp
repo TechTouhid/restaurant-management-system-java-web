@@ -5,7 +5,7 @@
 
 				<div class="row">
 					<div class="col">
-						<h4 class="heading-name">RestroGirls</h4>
+						<h4 class="heading-name">Touhid's RMS</h4>
 					</div>
 				</div>
 				<ul class="nav nav-sidebar list-group">

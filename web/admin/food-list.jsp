@@ -4,7 +4,6 @@
 <%@include file="layout/left-sidebar-long.jsp"%>
 <%@include file="layout/topnav.jsp"%>
 <%@include file="layout/left-sidebar-short.jsp"%>
-<%--<jsp:useBean id="menu" class="model.Menu" scope="session"/>--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="section white-text" style="background: #B35458;">
 
@@ -20,11 +19,12 @@
 		<table class="centered responsive-table">
         <thead>
           <tr>
+              <th>ID</th>
               <th>Name</th>
-              <th>Description</th>
               <th>Category</th>
-              <th>Delete</th>
+              <th>Price</th>
               <th>Edit</th>
+              <th>Delete</th>
           </tr>
         </thead>
 
@@ -32,12 +32,12 @@
           <c:forEach var="menu" items="${listMenu}">
 
               <tr>
+                  <td><c:out value="${menu.id}" /></td>
                   <td><c:out value="${menu.name}" /></td>
-                  <td><c:out value="${menu.price}" /></td>
                   <td><c:out value="${menu.category}" /></td>
-                  <td><a href="edit?id=<c:out value='${menu.id}' />">Edit</a>
-                      &nbsp;&nbsp;&nbsp;&nbsp; <a
-                              href="delete?id=<c:out value='${menu.id}' />">Delete</a></td>
+                  <td><c:out value="${menu.price}" /></td>
+                  <td><a href="editmenu?id=<c:out value='${menu.id}' />">Edit</a></td>
+                  <td><a href="deletemenu?id=<c:out value='${menu.id}' />">Delete</a></td>
               </tr>
           </c:forEach>
          
