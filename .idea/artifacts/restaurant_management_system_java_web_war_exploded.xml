@@ -7,7 +7,12 @@
         <element id="directory" name="classes">
           <element id="module-output" name="restaurant-management-system-java-web" />
         </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/libs/mysql-connector-java-8.0.22.jar" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:8.0.21" />
+        </element>
       </element>
+      <element id="library" level="project" name="mysql:mysql-connector-java:8.0.21" />
     </root>
   </artifact>
 </component>
