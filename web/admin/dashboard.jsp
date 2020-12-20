@@ -11,7 +11,7 @@
 	<div class="row" style="padding: 50px;">
 		<div class="col s12">
 
-			<a class="dash-btn" href="food-list.jsp"><div class="sec white white-text" style="margin: 15px; padding: 40px;border: 2px solid white; border-radius: 20px; font-size: 20px; background: linear-gradient(to right, #AF6568, #FA797F);">Foods</div></a>
+			<a class="dash-btn" href="/listmenu"><div class="sec white white-text" style="margin: 15px; padding: 40px;border: 2px solid white; border-radius: 20px; font-size: 20px; background: linear-gradient(to right, #AF6568, #FA797F);">Foods</div></a>
 			<a class="dash-btn" href="category-list.jsp"><div class="sec white white-text" style="margin: 15px; padding: 40px;border: 2px solid white; border-radius: 20px; font-size: 20px; background: linear-gradient(to right, #AF6568, #FA797F);">Categories</div></a>
 			<a class="dash-btn" href="order-list.jsp"><div class="sec white white-text" style="margin: 15px; padding: 40px;border: 2px solid white; border-radius: 20px; font-size: 20px; background: linear-gradient(to right, #AF6568, #FA797F);">Orders</div></a>
 

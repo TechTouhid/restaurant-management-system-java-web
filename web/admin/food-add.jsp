@@ -50,7 +50,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="section right" style="padding: 15px 10px;">
-                        <a href="food-list.php" class="waves-effect waves-light btn">Dismiss</a>
+                        <a href="/listmenu" class="waves-effect waves-light btn">Dismiss</a>
                     </div>
                     <div class="section right" style="padding: 15px 20px;">
                         <button type="submit" class="waves-effect waves-light btn">Add New</button>

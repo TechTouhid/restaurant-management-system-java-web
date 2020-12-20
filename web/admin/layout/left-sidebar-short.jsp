@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <ul class="sidenav" id="mobile-demo">
-				    <li><a href="food-list.php">Foods</a></li>
+				    <li><a href="../food-list.jsp">Foods</a></li>
 			        <li><a href="category-list.php">Category</a></li>
 			        <li><a href="order-list.php">Orders</a></li>
 			        <li data-target="modal1" class="modal-trigger"><a href="#">About</a></li>

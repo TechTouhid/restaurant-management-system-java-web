@@ -1,17 +1,32 @@
 package model;
 
 public class Menu {
+    protected int id;
     protected String name;
-    protected double price;
+    protected String  price;
     protected String category;
 
     public Menu() {
     }
 
-    public Menu(String name, double price, String category) {
+    public Menu(String name, String price, String category) {
         this.name = name;
         this.price = price;
         this.category = category;
+    }
+    public Menu(int id, String name, String price, String category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -22,11 +37,11 @@ public class Menu {
         this.name = name;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
