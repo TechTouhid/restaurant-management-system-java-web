@@ -25,19 +25,29 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">RestroGirls</a>
+                <a href="#" class="brand-logo">Touhid's RMS</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="/RestroGirls" class="hvr-grow">Home</a></li>
-                    <li><a href="/RestroGirls/about-restro-girls.php" class="hvr-grow">About Us</a></li>
+                    <li><a href="/" class="hvr-grow">Home</a></li>
+                    <li><a href="/about-restro-girls.php" class="hvr-grow">About Us</a></li>
                     <li><a href="food-categories.php" class="hvr-grow">Categories</a></li>
                     <li><a href="foods.php" class="hvr-grow">Foods</a></li>
                     <li><a href="#" class="hvr-grow" onclick="toggleModal('Contact Info', 'You can contact us directly by calling to this number +81-225-314-3456. Check the bottom Footer Section of the website for more info.');">Contact</a></li>
 
-                    <li><a href="#" class="hvr-grow">Hi</a></li>
-                    <li><a href="logout.jsp" class="hvr-grow">Logout</a></li>
-                    <li><a href="login.jsp" class="hvr-grow modal-trigger" data-target="modal1">Login</a></li>
-                    <li><a href="register.jsp" class="hvr-grow modal-trigger" data-target="modal2">Register</a></li>
+                    <li><a href="#" class="hvr-grow"><%
+                        if (session.getAttribute("user") != null) {
+                            out.print("Hi ");
+                        }
+                    %>${user.fullname}</a></li>
+                    <%
+                        if (session.getAttribute("user") == null) {
+                            out.print("<li><a href=\"login.jsp\" class=\"hvr-grow modal-trigger\" data-target=\"modal1\">Login</a></li>");
+                            out.print("<li><a href=\"register.jsp\" class=\"hvr-grow modal-trigger\" data-target=\"modal2\">Register</a></li>");
+                        }
+                        if(session.getAttribute("user") != null) {
+                            out.print("<li><a href=\"logout\" class=\"hvr-grow\">Logout</a></li>");
+                        }
+                    %>
 
                 </ul>
             </div>
