@@ -28,7 +28,7 @@
                 </div>
 <%--                <a href="javascript:void(0)" class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important;">Login</a>--%>
                 <button class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important; width: 100px">Login</button>
-                 <a href="/admin" class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important;">Admin Login</a>
+                 <a href="/AdminIndex.jsp" class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important;">Admin Login</a>
 
             </form>
             </div>

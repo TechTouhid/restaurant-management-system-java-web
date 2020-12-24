@@ -5,8 +5,7 @@
 				      <ul class="right hide-on-med-and-down">
 				        <li><a href="dashboard.jsp">Home</a></li>
 				        <li><a href="../">Main Site!</a></li>
-				        <li data-target="modal1" class="modal-trigger"><a href="#">About</a></li>
-				        <li><a href="logout.php">Logout!</a></li>
+				        <li><a href="/adminlogout">Logout!</a></li>
 				      </ul>
 				    </div>
 				  </nav>

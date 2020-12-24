@@ -75,6 +75,27 @@ public class UserDAO {
         }
         return user;
     }
+    public User adminCheckLogin(String email, String password) throws SQLException,
+            ClassNotFoundException {
+        User user = null;
+        try (Connection connection = getConnection();
+            // Step 2:Create a statement using connection object
+            PreparedStatement statement = connection.prepareStatement(SELECT_USER);){
+            statement.setString(1, email);
+            statement.setString(2, password);
+
+            ResultSet result = statement.executeQuery();
+
+            if (result.next()) {
+                user = new User();
+                user.setFullname(result.getString("fullname"));
+                user.setEmail(email);
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return user;
+    }
 
     private static void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
