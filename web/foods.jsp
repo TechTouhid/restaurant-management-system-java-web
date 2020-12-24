@@ -31,7 +31,7 @@
 
                         <tr>
                             <td><c:out value="${menu.id}" /></td>
-                            <td><c:out value="${menu.foodName}" /></td>
+                            <td><c:out value="${menu.name}" /></td>
                             <td><c:out value="${menu.category}" /></td>
                             <td><c:out value="${menu.price}" /></td>
                             <td><a href="addorder?id=<c:out value='${menu.id}' />&username=<c:out value='${user.fullname}' />&email=<c:out value='${user.email}' />&foodName=<c:out value='${menu.name}' />&category=<c:out value='${menu.category}' />&price=<c:out value='${menu.price}' /> ">Order</a></td>

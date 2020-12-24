@@ -19,6 +19,7 @@
                 <th>Price</th>
                 <th>Category</th>
                 <th>User Email</th>
+                <th>isApprove</th>
                 <th>Approve</th>
             </tr>
             </thead>
@@ -32,9 +33,16 @@
                     <td><c:out value="${food.price}" /></td>
                     <td><c:out value="${food.category}" /></td>
                     <td><c:out value="${food.email}" /></td>
-                    <td><c:out value="${food.isApproved}" /></td>
-<%--                    <td><%if (food.isApproved)%></td>--%>
-<%--                    <td><a href="editfood?id=<c:out value='${food.id}' />">Edit</a></td>--%>
+<%--                    <td><c:out value="${food.isApproved}" /></td>--%>
+                    <td><c:choose>
+                        <c:when test="${food.isApproved == 0}">
+                            NO
+                        </c:when>
+                        <c:otherwise>
+                            Yes
+                        </c:otherwise>
+                    </c:choose></td>
+                    <td><a href="approveorder?id=<c:out value='${food.id}' />">Approve</a></td>
                 </tr>
             </c:forEach>
 

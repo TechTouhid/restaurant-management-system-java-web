@@ -22,6 +22,8 @@ public class OrderDAO {
     private static final String SELECT_ORDER = "SELECT * FROM user WHERE email = ? and password = ?";
     private static final String SELECT_MENU_BY_ID = "select name,price,category from menu where id =?";
     private static final String SELECT_ALL_ORDER = "select * from order_table";
+    private static final String UPDATE_ORDER = "update order_table set isApproved =? where id =?;";
+
 
     public OrderDAO(){
         getConnection();
@@ -87,6 +89,20 @@ public class OrderDAO {
         }
         return orderitem;
     }
+
+    // Update menu
+    public static boolean updateOrder(int id) throws SQLException {
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_ORDER);) {
+            statement.setInt(1, 1);
+            statement.setInt(2, id);
+
+            rowUpdated = statement.executeUpdate() > 0;
+        }
+        return rowUpdated;
+    }
+
 
 
     private static void printSQLException(SQLException ex) {
