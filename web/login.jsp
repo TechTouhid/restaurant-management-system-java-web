@@ -6,7 +6,7 @@
         <div class="modal-content center">
             </br></br></br>
             <div class="row container">
-            <h4>Good to See You Back!</h4>
+            <h4>Welcome Sir!</h4>
 
             <h5><small class="center" id="login_error" style="color: red;"></small></h5>
             <form action="login" method="post" name="loginForm" onsubmit="return validateForm()">
@@ -28,8 +28,9 @@
                 </div>
 <%--                <a href="javascript:void(0)" class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important;">Login</a>--%>
                 <button class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important; width: 100px">Login</button>
+                 <a href="/admin" class="modal-close waves-effect waves-light btn" id="login_btn" style="background: #ee6e73 !important;">Admin Login</a>
 
-                </form>
+            </form>
             </div>
             </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
         </div>

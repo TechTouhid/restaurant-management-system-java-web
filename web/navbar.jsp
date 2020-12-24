@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+<%--    <link rel="stylesheet" href="css/form-style.css">--%>
 </head>
 <section class="fnavbar">
     <div class="navbar-fixed">
@@ -31,7 +32,7 @@
                     <li><a href="/" class="hvr-grow">Home</a></li>
                     <li><a href="/about-restro-girls.php" class="hvr-grow">About Us</a></li>
                     <li><a href="food-categories.php" class="hvr-grow">Categories</a></li>
-                    <li><a href="foods.php" class="hvr-grow">Foods</a></li>
+                    <li><a href="foodlist" class="hvr-grow">Foods</a></li>
                     <li><a href="#" class="hvr-grow" onclick="toggleModal('Contact Info', 'You can contact us directly by calling to this number +81-225-314-3456. Check the bottom Footer Section of the website for more info.');">Contact</a></li>
 
                     <li><a href="#" class="hvr-grow"><%
