@@ -3,6 +3,7 @@ package web;
 import model.User;
 import order.Order;
 import order.OrderDAO;
+import order.OrderList;
 import user.UserDAO;
 
 import javax.servlet.RequestDispatcher;
@@ -30,7 +31,10 @@ public class OrderServlet extends HttpServlet {
         int menuId = Integer.parseInt(request.getParameter("id"));
         String username = request.getParameter("username");
         String email = request.getParameter("email");
-        Order newOrder = new Order(menuId, username, email);
+        String foodName = request.getParameter("foodName");
+        String category = request.getParameter("category");
+        String price = request.getParameter("price");
+        OrderList newOrder = new OrderList(menuId, foodName, price, category, email);
         try {
             orderDAO.insertOrder(newOrder);
         } catch (SQLException e) {
