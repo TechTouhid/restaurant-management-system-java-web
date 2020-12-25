@@ -9,11 +9,7 @@
         <div class="section">
             <h3>Order Foods</h3>
         </div>
-
-        <div class="section right" style="padding: 15px 25px;">
-            <a href="admin/food-add.jsp" class="waves-effect waves-light btn">Add New</a>
-        </div>
-
+            </br></br></br>
         <div class="section center" style="padding: 20px;">
                 <table class="centered responsive-table">
                     <thead>
