@@ -42,7 +42,7 @@
                             Yes
                         </c:otherwise>
                     </c:choose></td>
-                    <td><a href="approveorder?id=<c:out value='${food.id}' />">Approve</a></td>
+                    <td><a class="modal-close waves-effect waves-light btn" style="background: #ee6e73 !important;" href="approveorder?id=<c:out value='${food.id}' />">Approve</a></td>
                 </tr>
             </c:forEach>
 

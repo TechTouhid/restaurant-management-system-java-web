@@ -26,11 +26,11 @@
                     <c:forEach var="menu" items="${listMenu}">
 
                         <tr>
-                            <td><c:out value="${menu.id}" /></td>
-                            <td><c:out value="${menu.name}" /></td>
-                            <td><c:out value="${menu.category}" /></td>
-                            <td><c:out value="${menu.price}" /></td>
-                            <td><a href="addorder?id=<c:out value='${menu.id}' />&username=<c:out value='${user.fullname}' />&email=<c:out value='${user.email}' />&foodName=<c:out value='${menu.name}' />&category=<c:out value='${menu.category}' />&price=<c:out value='${menu.price}' /> ">Order</a></td>
+                            <td style="color: white"><c:out value="${menu.id}" /></td>
+                            <td style="color: white"><c:out value="${menu.name}" /></td>
+                            <td style="color: white"><c:out value="${menu.category}" /></td>
+                            <td style="color: white"><c:out value="${menu.price}" /></td>
+                            <td style="color: white"><a class="modal-close waves-effect waves-light btn" style="background: #ee6e73 !important;" href="addorder?id=<c:out value='${menu.id}' />&username=<c:out value='${user.fullname}' />&email=<c:out value='${user.email}' />&foodName=<c:out value='${menu.name}' />&category=<c:out value='${menu.category}' />&price=<c:out value='${menu.price}' /> ">Order</a></td>
                         </tr>
                     </c:forEach>
 

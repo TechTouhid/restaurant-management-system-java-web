@@ -36,8 +36,8 @@
                   <td><c:out value="${menu.name}" /></td>
                   <td><c:out value="${menu.category}" /></td>
                   <td><c:out value="${menu.price}" /></td>
-                  <td><a href="editmenu?id=<c:out value='${menu.id}' />">Edit</a></td>
-                  <td><a href="deletemenu?id=<c:out value='${menu.id}' />">Delete</a></td>
+                  <td><a class="modal-close waves-effect waves-light btn" style="background: #ee6e73 !important;" href="editmenu?id=<c:out value='${menu.id}' />">Edit</a></td>
+                  <td><a class="modal-close waves-effect waves-light btn" style="background: #ee6e73 !important;" href="deletemenu?id=<c:out value='${menu.id}' />">Delete</a></td>
               </tr>
           </c:forEach>
          
